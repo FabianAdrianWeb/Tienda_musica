@@ -1,0 +1,19 @@
+.card {
+  display: inline-block;
+  width: 300px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+}
+
+.card img {
+  max-width: 100%;
+}
+
+.price {
+  font-size: 1.2em;
+  color: green;
+  font-weight: bold;
+}

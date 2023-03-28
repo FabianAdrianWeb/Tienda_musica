@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Contacto</title>
+    <link rel="stylesheet" href="../estilos.css/nevbar.css">
+    <style>
+      /* Estilos para el mapa */
+      #mapa {
+        height: 400px;
+        width: 600px;
+        margin-bottom: 20px;
+      }
+    </style>
+  </head>
+  <body>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="../paginas/productos.html">Productos</a></li>
+                <li><a href="../paginas/contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    
+    <h1>Contacto</h1>
+    <p>¡Contáctanos si tienes alguna pregunta o sugerencia!</p>
+    <ul>
+      <li><strong>Instagram:</strong> <a href="https://www.instagram.com/fabisb_1313/">@fabisb_1313</a></li>
+      <li><strong>Teléfono:</strong> 999999999</li>
+      <li><strong>Correo electrónico:</strong> <a href="mailto:musica.cl@gmail.com">musica.cl@gmail.com</a></li>
+    </ul>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1979.4721254184578!2d-70.65801348850289!3d-33.44769044961833!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662c507f91be917%3A0xcfac72a68dd4b986!2sDuoc%20UC%20-%20Sede%20Padre%20Alonso%20de%20Ovalle!5e0!3m2!1ses-419!2scl!4v1679959660325!5m2!1ses-419!2scl" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <div id="mapa"></div>
+    <script>
+      function initMap() {
+        // Crear mapa en el elemento con ID "mapa"
+        var map = new google.maps.Map(document.getElementById('mapa'), {
+          center: {lat: -33.4372, lng: -70.6506},
+          zoom: 16
+        });
+        
+        // Crear marcador en la ubicación especificada
+        var marker = new google.maps.Marker({
+          position: {lat: -33.4372, lng: -70.6506},
+          map: map,
+          title: "Nuestra ubicación"
+        });
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=TU_API_KEY&callback=initMap"
+    async defer></script>
+  </body>
+</html>
