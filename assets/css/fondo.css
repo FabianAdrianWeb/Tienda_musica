@@ -1,0 +1,25 @@
+body {
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(36,5,41,1) 35%, rgba(40,33,88,1) 55%, rgba(0,212,255,1) 100%);
+    background-size: 200% 200%;
+    animation: gradient 60s ease infinite;
+    background-blend-mode: darken;
+    height: 98vh;
+  }
+  
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+  
+    50% {
+      background-position: 100% 50%;
+    }
+  
+    100% {
+      background-position: 0% 50%;
+    }
+  }
