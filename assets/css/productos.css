@@ -1,5 +1,5 @@
 .card {
-  width: 300px;
+  width: 350px;
   border: 1px solid #ddd;
   border-radius: 5px;
   padding: 10px;
@@ -16,4 +16,17 @@
   font-size: 1.2em;
   color: green;
   font-weight: bold;
+}
+
+@media only screen and (max-width: 600px) {
+  .card {
+    width: 425px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+    float: left;
+  }
+  
 }
