@@ -1,10 +1,10 @@
 document.addEventListener("keyup", e=>{
     if (e.target.matches("#buscador")){
         if (e.key ==="Escape")e.target.value = ""
-        document.querySelectorAll(".cartas").forEach(fruta =>{
-            fruta.textContent.toLowerCase().includes(e.target.value.toLowerCase())
-              ?fruta.classList.remove("filtro")
-              :fruta.classList.add("filtro")
+        document.querySelectorAll(".cartas").forEach(productos =>{
+            productos.textContent.toLowerCase().includes(e.target.value.toLowerCase())
+              ?productos.classList.remove("filtro")
+              :productos.classList.add("filtro")
         })
   
     }
@@ -12,16 +12,3 @@ document.addEventListener("keyup", e=>{
   
   })
 
-  document.addEventListener("keyup", e=>{
-    if (e.target.matches("#buscador")){
-        if (e.key ==="Escape")e.target.value = ""
-        document.querySelectorAll(".table-dark").forEach(fruta =>{
-            fruta.textContent.toLowerCase().includes(e.target.value.toLowerCase())
-              ?fruta.classList.remove("filtro")
-              :fruta.classList.add("filtro")
-        })
-  
-    }
-  
-  
-  })
