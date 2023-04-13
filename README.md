@@ -31,7 +31,7 @@
   <H3>El proyecto runea en la dirección http://127.0.0.1:8005/
   </h3>
 
-<h1>OPCION 1 : Runear en tu maquina</h1>
+<h1>OPCION 2 : Runear en tu maquina</h1>
   
 
   
