@@ -1,0 +1,9 @@
+version: "3.9"
+
+services:
+  musicapp:
+    container_name: musicapp
+    build:
+      context: app
+    ports: 
+      - '8005:8005'
