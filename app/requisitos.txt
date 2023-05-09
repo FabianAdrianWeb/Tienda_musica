@@ -4,5 +4,3 @@ mysqlclient
 validators
 requests
 pandas
-google-auth
-google-api-python-client

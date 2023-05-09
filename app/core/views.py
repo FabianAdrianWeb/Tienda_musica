@@ -21,21 +21,21 @@ def contacto(request):
 
 
 def api(request):
-    # Autenticación con tu clave de API
-    SCOPES = ['https://www.googleapis.com/auth/youtube.force-ssl']
-    SERVICE_ACCOUNT_FILE = 'ruta/a/tu/archivo.json'
-    credentials = service_account.Credentials.from_service_account_file(
-        SERVICE_ACCOUNT_FILE, scopes=SCOPES)
+    response = requests.get('https://itunes.apple.com/us/rss/topsongs/limit=10/json')
+    data = response.json()
+    songs_data = []
 
-    # Crea el objeto de servicio de la API de YouTube Music
-    youtube_music = build('youtubemusic', 'v1', credentials=credentials)
+    for song in data['feed']['entry']:
+        song_data = {
+            'name': song['im:name']['label'],
+            'artist': song['im:artist']['label'],
+            'image': song['im:image'][-1]['label']
+        }
+        songs_data.append(song_data)
 
-    # Obtén las canciones más escuchadas
-    chart_response = youtube_music.chart().list(chart='mostPopular', regionCode='US').execute()
-    songs = chart_response['songs']
+    context = {'songs': songs_data}
+    return render(request, 'paginas/api.html', context)
 
-    # Renderiza los resultados en una plantilla de Django
-    return render(request, 'paginas/api.html', {'songs': songs})
 
 
 def login(request):
