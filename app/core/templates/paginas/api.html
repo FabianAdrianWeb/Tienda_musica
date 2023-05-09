@@ -2,15 +2,37 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Información de la Banda</title>
+    <title>Buscar Bandas Musicales</title>
 </head>
 <body>
-    <h1>Información de la Banda</h1>
-    <form method="post">
-        {% csrf_token %}
+    <h1>Buscar Bandas Musicales</h1>
+    <form id="band-form">
         <label for="band-input">Ingresa el nombre de la banda:</label>
-        <input type="text" id="band-input" name="band" required>
+        <input type="text" id="band-input" name="band" value="{{ band_name }}" required>
         <button type="submit">Buscar</button>
     </form>
+    <table id="band-table">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>País</th>
+                <th>Género</th>
+                <th>Formación</th>
+                <th>Disolución</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for artist in artists %}
+            <tr>
+                <td>{{ artist.name }}</td>
+                <td>{{ artist.country|default:'-' }}</td>
+                <td>{{ artist.tags.0.name|default:'-' }}</td>
+                
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <script src="script.js"></script>
 </body>
 </html>
+
