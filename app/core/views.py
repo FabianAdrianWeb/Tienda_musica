@@ -15,8 +15,13 @@ def productos(request):
 def contacto(request):
     return render(request, 'paginas/contacto.html')
 
-def api(request):
-    return render(request, 'paginas/api.html')
+def band_info(request):
+    if request.method == 'POST':
+        mbid = request.POST['mbid']
+        response = requests.get(f'https://musicbrainz.org/ws/2/artist/{mbid}?inc=url-rels+release-groups&fmt=json')
+        band_info = response.json()
+        return render(request, 'band_info.html', {'band_info': band_info})
+    return render(request, 'band_form.html')
 
 def login(request):
     return render(request, 'paginas/login.html')
