@@ -1,0 +1,71 @@
+{% load static %}
+{% if messages %}
+{% for message in messages%}
+<div class="notifi">
+    {{message}}
+</div>
+{% endfor%}
+{%endif%}
+{% if form.non_field_errors %}
+        {% for error in form.non_field_errors %}
+        <div class="notifi">
+             ingreso un dato incorrecto
+        </div>
+        {% endfor %}
+      </div>
+ {% endif %}
+ <!DOCTYPE html>
+ <html lang="es">
+ <head>
+   <title>Login</title>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="description" content="EL login de una pagina Web.">
+   <link rel="stylesheet" type="text/css" href="{% static "assets/css/login.css" %}">
+   <link rel="icon" href="{% static "favicon.ico" %}" type="image/x-icon">
+   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" async></script>
+   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+ </head>
+ <body class="light-mode">
+    <form id="registro">
+     <div class="loginBox"> <img class="user" src="{% static "assets/img/banner.png" %}" height="100px" width="100px" alt="imagen perfil">
+         <h3>Registrarse Aquí</h3>
+         {% csrf_token %}
+         <div class="form-group">
+             <label for="{{ form.username.id_for_label }}">Nombre de usuario:</label>
+             {{ form.username }}
+         </div>
+         <div class="form-group">
+          <label for="{{ form.username.id_for_label }}">rut:</label>
+             {{ form.rut }}
+         </div>
+         <div class="form-group">
+             <label for="{{ form.email.id_for_label }}">Correo electrónico:</label>
+             {{ form.email }}
+         </div>
+         <div class="form-group">
+             <label for="{{ form.password1.id_for_label }}">Contraseña:</label>
+             {{ form.password1 }}
+         </div>
+         <div class="form-group">
+             <label for="{{ form.password2.id_for_label }}">Confirmar contraseña:</label>
+             {{ form.password2 }}
+         </div>
+         <input type="submit" name="" value="Registrarse">
+     </form>
+         <div class="options">
+          <a href="#">¿Olvidó su contraseña?</a>
+          <a href="#">Registrarse</a>
+         </div> 
+         <button onclick="goBack()">Volver</button>
+     </div>
+     <script>
+         function goBack() {
+             window.history.back();
+         }
+     </script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+     <script src="{% static "assets/js/vregistro.js" %}"></script>
+ </body>
+ </html>
