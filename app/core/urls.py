@@ -5,6 +5,8 @@ from django.conf.urls.static import static
 from django.contrib.auth.views import LoginView, LogoutView
 from django.conf.urls import include
 from .forms import MyAuthForm
+from .views import *
+
 
 urlpatterns = [
     path('', views.index, name='index'),
@@ -17,3 +19,11 @@ urlpatterns = [
 
     
 ]
+# URLs relacionadas con la administración de productos
+urlpatterns += [
+    path('administrar_productos/<action>/<id>', administrar_productos, name="administrar_productos"),  # Administración de productos
+]
+
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

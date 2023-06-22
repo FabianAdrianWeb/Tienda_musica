@@ -3,7 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.forms import ModelForm, fields, Form
 from django.contrib.auth.forms import AuthenticationForm
 from django.forms.widgets import PasswordInput, TextInput
-from .models import Usuario
+from .models import *
 
 
 class MyAuthForm(AuthenticationForm):
@@ -53,3 +53,9 @@ class UsuarioRegisterForm(UserCreationForm):
         'min_length': 'password should be at least 8 Chars',
         'password_mismatch' : ("The twoadadadada."),
         }
+
+
+class ProductoForm(ModelForm):
+    class Meta:
+        model = Producto
+        fields = ['id', 'nomprod', 'precio', 'imagen']

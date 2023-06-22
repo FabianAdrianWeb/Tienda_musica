@@ -48,7 +48,21 @@
         <li class="nav-item">
           <a class="nav-link {% if request.path == '/top10' %}active{% endif %}" href="{% url "top10" %}">Top 10 Canciones mas Populares</a>
         </li>
+        {% if user.is_authenticated and user.is_staff %}
+        <li class="nav-item">
+          <a class="nav-link {% if request.path == 'administrar_productos/ins/-1' %}active{% endif %}" href="{% url 'administrar_productos' 'ins' '-1' %}">Administrar Productos</a>
+        </li>
+        {% endif %}
+
       </ul>
+      {% if user.is_authenticated %}
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link {% if request.path == '/logout' %}active{% endif %}" href="{% url "logout" %}">Desconectarse</a>
+        </li>
+      </ul>
+      {% else %}
+
       <ul class="navbar-nav">
         <li class="nav-item">
           <a class="nav-link {% if request.path == '/login' %}active{% endif %}" href="{% url "login" %}">Login</a>
@@ -57,6 +71,7 @@
           <a class="nav-link {% if request.path == '/registro' %}active{% endif %}" href="{% url "registro" %}">Registro</a>
         </li>
       </ul>
+      {% endif %}
     </div>
   </div>
 </nav>
