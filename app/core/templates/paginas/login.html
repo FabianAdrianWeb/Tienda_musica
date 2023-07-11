@@ -40,13 +40,13 @@
           <a href="#">¿Olvidó su contraseña?</a>
           <a href="#">Registrarse</a>
          </div> 
-         <button onclick="goBack()">Volver</button>
-     </div>
-     <script>
-         function goBack() {
-             window.history.back();
-         }
-     </script>
+         <button onclick="goToPage()">Volver</button>
+        </div>
+         <script>
+             function goToPage() {
+                 window.location.href = "{% url 'index' %}";
+             }
+         </script>
  </body>
  </html>
  

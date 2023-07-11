@@ -58,14 +58,12 @@
           <a href="#">¿Olvidó su contraseña?</a>
           <a href="#">Registrarse</a>
          </div> 
-         <button onclick="goBack()">Volver</button>
-     </div>
-     <script>
-         function goBack() {
-             window.history.back();
-         }
-     </script>
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
-     <script src="{% static "assets/js/vregistro.js" %}"></script>
+         <button onclick="goToPage()">Volver</button>
+
+         <script>
+             function goToPage() {
+                 window.location.href = "{% url 'index' %}";
+             }
+         </script>
  </body>
  </html>
